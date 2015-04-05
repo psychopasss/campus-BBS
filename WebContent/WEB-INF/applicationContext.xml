@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:tx="http://www.springframework.org/schema/tx"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+ http://www.springframework.org/schema/tx 
+ http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+ http://www.springframework.org/schema/aop 
+ http://www.springframework.org/schema/aop/spring-aop-3.1.xsd ">	
+
+	<!-- 为Dao组件注入session -->
+	<bean id="userDao" class="luntan.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/> 
+	</bean>
+	<bean id="tbBbsDao" class="luntan.dao.impl.TbBbsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/> 
+	</bean>
+	<bean id="tbBbsAnswerDao" class="luntan.dao.impl.TbBbsAnswerDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/> 
+	</bean>
+	
+	<!-- 为业务逻辑组件注入Dao组件 -->
+	<bean id="login" class="luntan.service.impl.TbUserServiceImpl">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	<bean id="tz" class="luntan.service.impl.TbBbsServiceImpl">
+		<property name="tbBbsDao" ref="tbBbsDao"/>
+		<property name="tbBbsAnswerDao" ref="tbBbsAnswerDao"/>
+	</bean>
+		
+	<!--配置事务管理器bean，因为使用Hibernate持久化技术-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="yzyPointcut" expression="execution(* struts.service.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="yzyPointcut"/>
+	</aop:config>
+	
+	<!-- 配置SessionFactory -->
+		<bean id="sessionFactory"
+			class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource" />
+			
+			<property name="mappingResources">
+				<list>
+					<value>luntan/model/TbUser.hbm.xml</value>
+					<value>luntan/model/TbBbs.hbm.xml</value>
+					<value>luntan/model/TbBbsAnswer.hbm.xml</value>
+				</list>
+			</property>
+			
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+					<prop key="hibernate.show_sql">false</prop>
+					<prop key="hibernate.format_sql">true</prop>
+					<prop key="hibernate.hbm2ddl.auto">update</prop>
+				</props>
+			</property>
+		
+		</bean>	
+	
+	<!-- c3p0连接池配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/luntan" />
+		<property name="user" value="root" />
+		<property name="password" value="308989414" />
+		<property name="minPoolSize" value="30" />
+		<property name="maxPoolSize" value="100" />
+		<property name="initialPoolSize" value="10" />
+		<property name="maxIdleTime" value="1000" />
+	</bean>
+
+</beans>

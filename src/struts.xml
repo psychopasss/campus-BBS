@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+     
+<struts> 
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<constant name="struts.xwork.chaining.copyMessages" value="true" />
+	
+	<package name="login"  extends="struts-default">
+		<action name="login" class="luntan.action.user.LoginAction">
+			<result name="success">/page/login/login_success.jsp</result>
+			<result name="error">/page/login/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="sudo"  extends="struts-default">
+	  	
+	  	<interceptors>
+			<interceptor name="authority" class="struts.action.interceptor.AuthorityInterceptor"/>
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="authority"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault"/>
+		<default-action-ref name="error"/>
+
+		<global-results>
+		<result name="login">/page/login/isLogin.jsp</result>
+		</global-results>
+	
+
+		
+		<action name="error">
+			<result name="success">/page/error/error.jsp</result>
+		</action>
+		
+		<action name="regist" class="luntan.action.user.LoginAction" method="insert">
+			<result name="success">/page/login/regist.jsp</result>
+			<result name="error">/page/login/regist.jsp</result>
+		</action>
+		
+		<action name="tz*" class="luntan.action.tz.TzAction" method="{1}">
+			<result name="success">/page/tz/{1}.jsp</result>
+			<result name="success1">/page/grzx/tzgl.jsp</result>
+			<result name="success2">/page/grzx/wdhf.jsp</result>
+			<result name="success3">/page/grzx/trht.jsp</result>
+			<result name="fbfh" type="redirectAction">tzdetail?h=%{#session.bbsId}</result>
+			<result name="key">/page/tz/find.jsp</result>
+			<result name="key1">/page/grzx/tzgl.jsp</result>
+			<result name="key2">/page/grzx/wdhf.jsp</result>
+			<result name="update">/page/tz/update.jsp</result>
+			<result name="update2">/page/tz/updateAnswer.jsp</result>
+			<result name="delete" type="redirectAction">tzfind1?bbsSender=${bbsSender}</result>
+			<result name="delete1" type="redirectAction">tzfindAnswer?bbsSender=${bbsSender}</result>
+			<result name="delete2" type="redirectAction">tzfindAnswer2?bbsSender=${bbsSender}</result>
+			<result name="error">/page/tz/{1}.jsp</result>
+		</action>
+		
+		<action name="xgmm" class="luntan.action.user.XgmmAction">
+			<result name="success">/page/grzx/xgmm.jsp</result>
+			<result name="error">/page/grzx/xgmm.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

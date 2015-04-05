@@ -1,0 +1,444 @@
+#errorAndmes{ 
+	 font-family:Arial, Helvetica, sans-serif;
+	 font-size:15px; color:#FF0000; vertical-align:middle;
+	 } 
+#errorAndmes ul{ 
+	 list-style-type:none;
+	 margin:0px; padding:3px;
+	 vertical-align:middle; 
+	 color:#FF0000;
+	 }
+#errorAndmes ul li
+{
+	list-style-type:none; color:#FF0000;
+	} 
+	
+body {
+background: #386159;
+/*background:#FFF url(images/img02.jpg) repeat-x;*/
+font-family:Arial, Helvetica, sans-serif;
+font-size:15px;
+margin:0;
+padding:0;
+}
+
+h1,h2,h3,h4 {
+font-weight:400;
+color:#810988;
+margin:0;
+padding:0;
+}
+
+h1 {
+font-size:2em;
+}
+
+h2 {
+font-size:2.8em;
+}
+
+h3 {
+font-size:1.6em;
+}
+
+h4 {
+font-size:1.3em;
+}
+sh {
+font-size:0.7em;
+color:#C2C8D4;
+}
+p,ul,ol {
+margin-top:0;
+line-height:180%;
+}
+
+a {
+text-decoration:none;
+color:#000000;
+}
+.grzx{
+	color:#810988;
+}
+
+tr.t,td.t{
+border-collapse: collapse;
+border:1px solid #C2C8D4;
+margin: 0;
+padding: 0;
+font: 12px/1.5 Verdana,Helvetica,Arial,sans-serif;
+}
+table.t{
+border-collapse: collapse;
+border:1px solid #C2C8D4;
+margin: 0;
+padding: 0;
+font: 12px/1.5 Verdana,Helvetica,Arial,sans-serif;
+width:100%;
+}
+tr.even {			/*
+						$("tr:even").addClass("even");
+						瀹為檯涓�,杩欏氨鏄坊鍔犳枒椹汗鎵�闇�鐨勬墍鏈変唬鐮併�傚洜涓� jQuery 鐞嗚В濂囨暟琛屽拰鍋舵暟琛岀殑姒傚康,鎵�浠ュ彲浠�
+						璁╁畠鎶婃墍鏈夊伓鏁拌鐨勭被灞炴�ц缃负"even"銆傚張鍥犱负 CSS 涓寘鍚簲鐢ㄤ簬 tr.even 鐨勮鍒�,鎵�浠ヤ細鑷姩璁�
+						缃伓鏁拌鐨勯鑹�,鎴戜滑鏍规湰涓嶉渶瑕佷慨鏀� HTML銆�
+					*/
+background-color: #C2C8D4;
+}
+tr.over {
+background-color: #8797B7;
+}
+
+th.t {
+background-image: url(/Staff%20management-SSH2/images/bg.gif);
+background-repeat: no-repeat;
+background-position: center right;
+border-right: 2px solid #FFF;
+color: #FFF;
+/*padding-right: 40px;
+padding-left: 20px;*/
+background-color: #626975;
+}
+th.d{
+width:10px ;
+border-right: 2px solid #FFF;
+color: #FFF;
+padding-right: 40px;
+padding-left: 20px;
+background-color: #626975;
+}
+th.sortUp { 
+background: #626975 url(/Staff%20management-SSH2/images/asc.gif) no-repeat right center;
+}
+th.sortDown {
+background: #626975 url(/Staff%20management-SSH2/images/desc.gif) no-repeat right center;
+}
+
+
+#wrapper {
+	
+}
+
+#header-wrapper {
+width: 98%;
+height:80px;
+background: url(images/img04.jpg) repeat-x;
+margin:0 auto;
+}
+.fl_icn_g {
+float: left;
+width: 31px;
+margin-right: 10px;
+}
+.fl_tb {
+width: 90%;
+}
+.fl_g {
+vertical-align: top;
+}
+.fl_tb td {
+padding: 10px 0;
+}
+.fl_g dt {
+font-weight: 700;
+}
+dd {
+display: block;
+-webkit-margin-start: 40px;
+margin: 0;
+padding: 0;
+font: 12px/1.5 Verdana,Helvetica,Arial,sans-serif;
+}
+
+
+#header {
+width:950px;
+margin:0 auto;
+}
+
+#logo {
+	
+float:left;
+
+color:#33CCFF;
+
+}
+
+
+#logo h3 {
+color:#339933;
+}
+
+#logo p {
+font:normal 14px Georgia, "Times New Roman", Times, serif;
+font-style:italic;
+color:#000000;
+margin:0;
+padding:0;
+}
+
+#logo a {
+border:none;
+background:none;
+text-decoration:none;
+color:#fff;
+}
+
+#search {
+float:right;
+width:280px;
+height:60px;
+padding:20px 0 0;
+}
+
+#search form {
+height:41px;
+margin:0;
+padding:10px 0 0 20px;
+}
+
+#search fieldset {
+border:none;
+margin:0;
+padding:0;
+}
+
+#search-text {
+width:170px;
+border:1px solid #DEDEDE;
+background:#FFF;
+text-transform:lowercase;
+font:normal 11px Arial, Helvetica, sans-serif;
+color:#5D781D;
+padding:6px 5px 2px;
+}
+
+#search-submit {
+width:50px;
+height:22px;
+border:none;
+background:#B9B9B9;
+color:#000;
+}
+
+
+#menu {
+float:right;
+width:680px;
+height:30px;
+}
+
+#menu ul {
+//float:right;
+//padding:30px 6px ;
+list-style:none;
+width:680px;
+}
+
+#menu a {
+display:block;
+margin-right:1px;
+text-decoration:none;
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+font-weight:700;
+color:#000;
+border:none;
+padding:0px 6px ;
+}
+
+#menu a:hover,#menu a.current{
+/*text-decoration:none;*/
+color:#039;
+
+}
+
+#page {
+width:980px;
+margin:0 auto;
+padding:0;
+}
+
+#page-bgtop {
+padding:20px 0;
+}
+
+#content1{
+float:left;
+width:650px;
+padding:0;
+}
+#content{
+width: 98%;
+background: #FFF;
+margin: 0 auto;
+min-height: 587px;
+}
+
+.post {
+margin-bottom:40px;
+border-bottom:1px dotted #E7E2DC;
+}
+
+.post .title {
+height:41px;
+letter-spacing:-.5px;
+padding:7px 0 0 30px;
+}
+
+.post .title a {
+color:#810988;
+border:none;
+}
+
+.post .meta {
+margin-bottom:30px;
+text-align:left;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+font-weight:700;
+font-style:italic;
+padding:0 30px;
+}
+
+.post .meta .posted {
+float:right;
+}
+
+.post .entry {
+text-align:justify;
+padding:0 30px 20px;
+}
+
+.links {
+padding-top:20px;
+font-size:12px;
+font-weight:700;
+}
+
+#sidebar {
+float:right;
+width:280px;
+color:#787878;
+margin:0;
+padding:0 20px 0 0;
+}
+
+#sidebar ul {
+list-style:none;
+margin:0;
+padding:0;
+}
+
+#sidebar li {
+margin:0;
+padding:0;
+}
+
+#sidebar li ul {
+padding-bottom:30px;
+margin:0;
+}
+
+#sidebar li li {
+line-height:35px;
+border-bottom:1px dotted #E7E2DC;
+border-left:none;
+margin:0 30px;
+}
+
+#sidebar li li span {
+display:block;
+margin-top:-20px;
+font-size:11px;
+font-style:italic;
+padding:0;
+}
+
+#sidebar li li a {
+background:url(images/img01.jpg) no-repeat left 5px;
+padding:0 0 0 15px;
+}
+
+#sidebar h2 {
+height:38px;
+padding-left:30px;
+letter-spacing:-.5px;
+font-size:1.8em;
+}
+
+#sidebar p {
+text-align:justify;
+margin:0;
+padding:0 30px 20px;
+}
+
+#sidebar a {
+border:none;
+}
+
+#sidebar a:hover {
+text-decoration:underline;
+}
+
+#calendar_wrap {
+padding:20px;
+}
+
+#calendar table {
+width:100%;
+}
+
+#calendar tbody td {
+text-align:center;
+}
+
+#calendar #next {
+text-align:right;
+}
+
+#footer {
+height:40px;
+background:#810988;
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0 0 15px;
+}
+
+#footer p {
+padding-top:20px;
+line-height:normal;
+font-size:9px;
+text-transform:uppercase;
+text-align:center;
+color:#FFF;
+margin:0;
+}
+
+#footer a {
+color:#FFF;
+}
+
+#menu li,.post .meta .date {
+	margin-top: 27px;
+float:left;
+}
+
+#log_inout{
+float:right;
+width:280px;
+height:15px;
+margin:0 auto;
+padding: 6px;	
+}
+
+#log_inout a {
+color:#fff;
+border:none;
+margin:0 7px;
+}
+#log_inout a:hover{
+	color:#000000;
+}
+
+
